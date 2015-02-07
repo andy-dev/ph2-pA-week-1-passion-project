@@ -1,3 +1,37 @@
 <h1>Welcome to Family Fridge</h1>
-<h3><a href="/logout">Logout</a></h3>
+<h5><a href="/logout">Logout</a></h5>
 
+<div class="container">
+
+<table>
+  <tr>
+    <ul>
+      <% @note.each do |note| %>
+
+      <li><%= note.title %></l1>
+      <li><%= note.description %></li>
+
+      <a href= "/note/<%=note.id%>/edit">update</a>
+      <a href= "/note/<%=note.id%>/delete">delete</a>
+
+      <%end%>
+    </ul>
+  </tr>
+</table>
+</div>
+
+
+
+<div class="container">
+
+<table>
+  <tr>
+  <form action= "/new/note" method= "post">
+
+    <p> Description
+    <input type = "text" name="description"></p>
+    <input type = "submit" value="Create New Note">
+
+  </tr>
+</table>
+</div>
