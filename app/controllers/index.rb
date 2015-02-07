@@ -19,11 +19,11 @@ end
 
 
 post '/login' do
+
   user = User.find_by(user_name: params[:username])
 
   if user.password_hash == params[:password]
     session[:user_id] = user.id
-
     redirect '/fridge'
   end
 
@@ -67,5 +67,6 @@ end
 get '/fridge' do
   redirect '/' unless session[:user_id]
   @note= Note.all
+  @user = User.find(session[:user_id])
   erb :fridge
 end

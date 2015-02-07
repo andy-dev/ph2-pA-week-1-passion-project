@@ -1,4 +1,4 @@
 class View < ActiveRecord::Base
   has_many  :users
-  has_many  :views
+  has_many  :notes
 end
