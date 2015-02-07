@@ -138,4 +138,7 @@ task "console" do
   exec "irb -r./config/environment"
 end
 
+desc "DB :reset"
+  task :reset => ["db:drop", "db:create", "db:migrate"]
+
 task :default  => :spec
