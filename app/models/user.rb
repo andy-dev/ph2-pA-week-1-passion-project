@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
 
 
   validates :user_name, uniqueness: { :message => "Username already Exists"}
-  validates :user_name, presence: {:message => "Need Username and Password to login"}
+  validates :user_name, presence: {:message => "Need Username and Password to login/register"}
 
   include BCrypt
-  def password
+  def password_hash
     @password ||= Password.new(password_hash)
   end
 
@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
+
 
 end
 

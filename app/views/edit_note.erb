@@ -1,3 +1,5 @@
+
+<div class="newnotebox">
  <form action= "/note/<%=@note.id%>/edit" method= "post">
   <input type="hidden" name="_method" value="put">
 
@@ -5,3 +7,4 @@
   <p> Update Note
     <input type = "text" name="description" value"<%=@note.description%>"></p>
   <input type = "submit" value="update">
+</div>

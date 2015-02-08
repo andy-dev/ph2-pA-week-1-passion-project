@@ -12,6 +12,8 @@ background-image: url(http://www.michaeltallmanphotography.com/wp-content/images
   border: 1px dotted black;
   background: white;
 
+
+
 }
 
 .seenbox {
@@ -20,6 +22,7 @@ background-image: url(http://www.michaeltallmanphotography.com/wp-content/images
   padding: 10px 20px 20px 20px;
   border: 1px black;
   background: white;
+  background: lightblue;
 
 }
 
@@ -29,6 +32,7 @@ background-image: url(http://www.michaeltallmanphotography.com/wp-content/images
   padding: 10px 20px 20px 20px;
   border: 1px black;
   background: white;
+  background: lightblue;
 
 }
 
@@ -38,15 +42,16 @@ background-image: url(http://www.michaeltallmanphotography.com/wp-content/images
   padding: 0px 20px 20px 20px;
   border: 1px black;
   background: white;
+  background: orange;
 
 }
 
 .newnotebox {
 
   margin: 20px auto;
-  width: 600px;
+  width: 800px;
   padding: 10px 20px 20px 20px;
   border: 1px black;
-  background: white;
+  background: lightblue;
 
 }

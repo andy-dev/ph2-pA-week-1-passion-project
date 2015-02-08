@@ -2,9 +2,9 @@
 
 <div class="header">
 <h1>Welcome to Family Fridge</h1>
-<h3> <%=@user.user_name %> </h3>
+<h3> Welcome <%= @user.user_name %> </h3>
 
-<h5><a href="/logout">Logout</a></h5>
+<h4><a href="/logout">Logout</a></h5>
 </div>
 
 
@@ -13,8 +13,8 @@
     <tr>
       <form action= "/new/note" method= "post">
 
-      <p> Description
-      <input type = "text" name="description">
+      <p> Create a New Note
+      <input type = "text" name="description" size="60">
       <input type = "submit" value="Create New Note"></p>
 
     </tr>
@@ -24,18 +24,17 @@
 
 
 
-
     <ul>
       <% @note.each do |note| %>
       <div class = "notebox">
       <li><%= note.description %></li>
-
-
+      <li>Created by: <%= note.user.user_name if note.user != nil %></li>
       <a href= "/note/<%=note.id%>/edit">Update</a>
       <a href= "/note/<%=note.id%>/delete">Delete</a>
       <a href= "/note/<%=note.id%>/seen">Mark as Seen</a>
 
     </div>
+
 
 
       <div class ="seenbox">

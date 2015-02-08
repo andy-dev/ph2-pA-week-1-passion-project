@@ -1,4 +1,3 @@
-
 enable :sessions
 
 
@@ -7,8 +6,17 @@ get '/register' do
 end
 
 post '/register' do
-  User.create(user_name: params[:username], password_hash: params[:password])
-  redirect '/'
+  @user = User.new(user_name: params[:username])
+  @user.password = params[:password]
+  if @user.save
+    session[:user_id] = @user.id
+    redirect '/fridge'
+  else
+    @user.errors
+    @errors = @user.errors
+    # flash[:error] = "Error in creating the user."
+    erb :register
+  end
 end
 
 
@@ -19,20 +27,22 @@ end
 
 
 post '/login' do
-
   user = User.find_by(user_name: params[:username])
-
-  if user.password_hash == params[:password]
+  # if user.password_hash == params[:password]
+  if user.password == params[:password] #https://github.com/codahale/bcrypt-ruby/blob/master/lib/bcrypt/password.rb
     session[:user_id] = user.id
     redirect '/fridge'
+  else
+    @errors = user.errors
   end
 
-  "Invalid Login"
 end
 
 
 post '/new/note' do
-  Note.create(description: params[:description])
+  # user = User.find(session[:user_id])
+  user = current_user
+  Note.create(description: params[:description], user_id: user.id) if user != nil
   redirect "/fridge"
 end
 

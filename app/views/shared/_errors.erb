@@ -1,0 +1,7 @@
+        <% if @errors %>
+          <% @errors.messages.each_value do |value|%>
+            <% value.each do |message| %>
+              <p><%= message %></p>
+            <% end %>
+          <% end %>
+        <% end %>
