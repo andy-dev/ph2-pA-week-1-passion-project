@@ -2,3 +2,20 @@ shit deleted
 
  <form action= "/note/<%=note.id%>/seen" method= "post">
       <input type = "submit" value="Mark as Seen">
+
+
+      <div class="container">
+<table>
+  <tr>
+    <ul>
+      <% @find_views_of_note= @views.where(note_id: <%@note.id%>)%>
+      <% @find_view_of_note.each do |name| %>
+
+      <li><%= name.user_name %></li>
+
+
+      <%end%>
+    </ul>
+  </tr>
+</table>
+</div>

@@ -10,10 +10,11 @@ post '/register' do
   @user.password = params[:password]
   if @user.save
     session[:user_id] = @user.id
-    redirect '/fridge'
+    redirect '/register'
   else
-    @user.errors
-    @errors = @user.errors
+    @error = @user.errors[:user_name][0]
+    # @user.errors
+    # @errors = @user.errors
     # flash[:error] = "Error in creating the user."
     erb :register
   end
@@ -28,12 +29,13 @@ end
 
 post '/login' do
   user = User.find_by(user_name: params[:username])
-  # if user.password_hash == params[:password]
   if user.password == params[:password] #https://github.com/codahale/bcrypt-ruby/blob/master/lib/bcrypt/password.rb
     session[:user_id] = user.id
     redirect '/fridge'
   else
-    @errors = user.errors
+    redirect '/'
+   #@errors = user.errors
+   #@error = @user.errors[:user_name][0]
   end
 
 end
@@ -80,12 +82,10 @@ post '/note/:id/seen' do
 end
 
 
-
 post '/note/:id/seen/by' do
   View.create(user_id: session[:user_id], note_id: params[:id])
   redirect '/fridge'
 end
-
 
 
 get '/logout' do

@@ -22,31 +22,29 @@
 </div>
 
 
-
-
     <ul>
       <% @note.each do |note| %>
       <div class = "notebox">
       <li><%= note.description %></li>
       <li>Created by: <%= note.user.user_name if note.user != nil %></li>
+      <li>Posted <%=prettify(note.created_at.to_s)%></li>
       <a href= "/note/<%=note.id%>/edit">Update</a>
       <a href= "/note/<%=note.id%>/delete">Delete</a>
       <a href= "/note/<%=note.id%>/seen">Mark as Seen</a>
 
-    </div>
+      </div>
 
 
 
       <div class ="seenbox">
       <p> Seen By</p>
       <ul><% note.who_has_seen.each do |user| %>
-        <div>
+
            <li> <%=user.user_name %> </li>
-         </div>
+
            <%end%>
       </ul>
       </div>
-
 
       <%end%>
     </ul>
