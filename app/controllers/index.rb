@@ -70,11 +70,6 @@ post '/note/:id/seen' do
 end
 
 
-# get '/note/:id/seen/by' do
-#   @note = Note.find(params[:id])
-#   @users = User.all
-#   erb :seen_note
-# end
 
 post '/note/:id/seen/by' do
   View.create(user_id: session[:user_id], note_id: params[:id])

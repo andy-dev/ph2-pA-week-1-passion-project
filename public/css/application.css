@@ -1,0 +1,52 @@
+
+html{
+
+background-image: url(http://www.michaeltallmanphotography.com/wp-content/images/fridge.jpg);
+}
+
+
+.loginbox {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+  background: white;
+
+}
+
+.seenbox {
+  margin: 20px auto;
+  width: 600px;
+  padding: 10px 20px 20px 20px;
+  border: 1px black;
+  background: white;
+
+}
+
+.notebox {
+  margin: 20px auto;
+  width: 600px;
+  padding: 10px 20px 20px 20px;
+  border: 1px black;
+  background: white;
+
+}
+
+.header {
+  margin: 20px auto;
+  width: 100%;
+  padding: 0px 20px 20px 20px;
+  border: 1px black;
+  background: white;
+
+}
+
+.newnotebox {
+
+  margin: 20px auto;
+  width: 600px;
+  padding: 10px 20px 20px 20px;
+  border: 1px black;
+  background: white;
+
+}

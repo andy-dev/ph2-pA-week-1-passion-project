@@ -1,50 +1,60 @@
+
+
+<div class="header">
 <h1>Welcome to Family Fridge</h1>
 <h3> <%=@user.user_name %> </h3>
 
 <h5><a href="/logout">Logout</a></h5>
-
-
-
-</ul>
-
-<div class="container">
-<table>
-  <tr>
-    <ul>
-      <% @note.each do |note| %>
-
-      <li><%= note.description %></li>
-
-      <a href= "/note/<%=note.id%>/edit">Update</a>
-      <a href= "/note/<%=note.id%>/delete">Delete</a>
-      <a href= "/note/<%=note.id%>/seen">Mark as Seen</a>
-      <p> Seen By</p>
-      <ul><% note.who_has_seen.each do |user| %>
-           <li> <%=user.user_name %> </li>
-           <%end%>
-      </ul>
-
-
-      <%end%>
-    </ul>
-  </tr>
-</table>
 </div>
 
 
-
-<div class="container">
+<div class="newnotebox">
   <table>
     <tr>
       <form action= "/new/note" method= "post">
 
       <p> Description
-      <input type = "text" name="description"></p>
-      <input type = "submit" value="Create New Note">
+      <input type = "text" name="description">
+      <input type = "submit" value="Create New Note"></p>
 
     </tr>
   </table>
 </div>
+
+
+
+
+
+    <ul>
+      <% @note.each do |note| %>
+      <div class = "notebox">
+      <li><%= note.description %></li>
+
+
+      <a href= "/note/<%=note.id%>/edit">Update</a>
+      <a href= "/note/<%=note.id%>/delete">Delete</a>
+      <a href= "/note/<%=note.id%>/seen">Mark as Seen</a>
+
+    </div>
+
+
+      <div class ="seenbox">
+      <p> Seen By</p>
+      <ul><% note.who_has_seen.each do |user| %>
+        <div>
+           <li> <%=user.user_name %> </li>
+         </div>
+           <%end%>
+      </ul>
+      </div>
+
+
+      <%end%>
+    </ul>
+
+
+
+
 
 
 
