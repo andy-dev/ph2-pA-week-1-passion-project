@@ -1,4 +1,5 @@
 class View < ActiveRecord::Base
-  has_many  :users
-  has_many  :notes
+  belongs_to  :user
+  belongs_to  :note
+
 end

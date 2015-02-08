@@ -59,6 +59,30 @@ delete '/note/:id/delete' do
 end
 
 
+get '/note/:id/seen' do
+  @note = Note.find(params[:id])
+  erb :seen_note
+end
+
+post '/note/:id/seen' do
+  View.create(user_id: session[:user_id], note_id: params[:id])
+  redirect '/fridge'
+end
+
+
+# get '/note/:id/seen/by' do
+#   @note = Note.find(params[:id])
+#   @users = User.all
+#   erb :seen_note
+# end
+
+post '/note/:id/seen/by' do
+  View.create(user_id: session[:user_id], note_id: params[:id])
+  redirect '/fridge'
+end
+
+
+
 get '/logout' do
   session.delete :user_id
   redirect '/'
@@ -68,5 +92,6 @@ get '/fridge' do
   redirect '/' unless session[:user_id]
   @note= Note.all
   @user = User.find(session[:user_id])
+  @views = View.all
   erb :fridge
 end

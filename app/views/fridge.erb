@@ -1,19 +1,29 @@
 <h1>Welcome to Family Fridge</h1>
-<h1> Hey <%= @user.user_name %></h1>
+<h3> <%=@user.user_name %> </h3>
+
 <h5><a href="/logout">Logout</a></h5>
 
-<div class="container">
 
+
+</ul>
+
+<div class="container">
 <table>
   <tr>
     <ul>
       <% @note.each do |note| %>
 
-
       <li><%= note.description %></li>
 
-      <a href= "/note/<%=note.id%>/edit">update</a>
-      <a href= "/note/<%=note.id%>/delete">delete</a>
+      <a href= "/note/<%=note.id%>/edit">Update</a>
+      <a href= "/note/<%=note.id%>/delete">Delete</a>
+      <a href= "/note/<%=note.id%>/seen">Mark as Seen</a>
+      <p> Seen By</p>
+      <ul><% note.who_has_seen.each do |user| %>
+           <li> <%=user.user_name %> </li>
+           <%end%>
+      </ul>
+
 
       <%end%>
     </ul>
@@ -24,15 +34,19 @@
 
 
 <div class="container">
+  <table>
+    <tr>
+      <form action= "/new/note" method= "post">
 
-<table>
-  <tr>
-  <form action= "/new/note" method= "post">
+      <p> Description
+      <input type = "text" name="description"></p>
+      <input type = "submit" value="Create New Note">
 
-    <p> Description
-    <input type = "text" name="description"></p>
-    <input type = "submit" value="Create New Note">
-
-  </tr>
-</table>
+    </tr>
+  </table>
 </div>
+
+
+
+
+
