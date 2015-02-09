@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
    validates :user_name, uniqueness: { :message => "Username already Exists"}
    validates :user_name, presence: {:message => "Need Username and Password to login/register"}
+   #validates :user_name, presence:true
+   validates :password_hash, presence: true
 
   include BCrypt
   def password

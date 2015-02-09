@@ -4,6 +4,7 @@ class Note < ActiveRecord::Base
 
   validates :user, presence: true
 
+
   def who_has_seen
     views.map(&:user)
    end
