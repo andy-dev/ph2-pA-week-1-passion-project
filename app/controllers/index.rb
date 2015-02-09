@@ -10,7 +10,7 @@ post '/register' do
   @user.password = params[:password]
   if @user.save
     session[:user_id] = @user.id
-    redirect '/register'
+    redirect '/fridge'
   else
     @error = @user.errors[:user_name][0]
     # @user.errors

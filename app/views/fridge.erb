@@ -23,10 +23,11 @@
 
 
     <ul>
-      <% @note.each do |note| %>
+      <% @note.reverse.each do |note| %>
       <div class = "notebox">
-      <li><%= note.description %></li>
       <li>Created by: <%= note.user.user_name if note.user != nil %></li>
+      <li><%= note.description %></li>
+
       <li>Posted <%=prettify(note.created_at.to_s)%></li>
       <a href= "/note/<%=note.id%>/edit">Update</a>
       <a href= "/note/<%=note.id%>/delete">Delete</a>
