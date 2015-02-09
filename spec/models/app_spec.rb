@@ -90,5 +90,17 @@ describe "GET /" do
     end
 end
 
+#have to get this test working
+# describe "new notes" do
+# it "renders a new note" do
+#       # arrange
+#       Note.create(description: "Testing the Note!")
+#       # act
+#       get '/new/note'
+#       # assert
+#       expect(last_response.body).to include("Testing the Note!")
+#     end
+#   end
+
 
 
